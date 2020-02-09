@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+//    (function () {
+//        var str='张三';
+//        console.log(str);
+//    })();
+//    (function () {
+//        var str='李四';
+//        console.log(str);
+//    })();
+    //
+    // //1）var可以重复声名变量
+    // var str='张三';
+    // var str='李四';
+    // console.log(str);
+
+//var用于变量的提升,虽然是输出的是undefined，但是正常的应该是先定义后输出，如果未定义就输出将会报错
+// console.log(str);
+//     var str='秀儿3';
+// console.log(str);
+// //var 不能声名常量
+//     var zhi='秀儿';
+//     zhi='秀儿One';
+// console.log(zhi);
+    //*******************对象的解构
+//     let obj={
+//     name:'顾建涛',
+//     age:23,
+//     sex:'男'
+// };
+// let {name,age,sex}=obj;
+//
+// console.log(name, age, sex);
+    //解构重命名
+// let obj= {
+//     name: '顾建涛',
+//     age: 23,
+//     sex: '男'
+// }
+// let name='xxx',age=233,sex='男';
+// //将里面的name重命名为lkName,age重命名为lkAge,sex重命名为lkSex，
+// let {name:lkName,age:lkAge,sex:lkSex}=obj;
+// console.log(name, age, sex);
+// console.log(lkName, lkAge, lkSex);
+//省略结构
+//这样写可以输出等于值的全部
+//     let [...college]=['引擎计划','itlike','web'];
+//     //这样写可以输出数组中间的位置
+//     // let[,collegeone,]=['引擎计划','itlike','web'];
+//     //如果取其中的第三个,按照逗号的写法依次写即可
+//     let[,,collegeone]=['引擎计划','itlike','web'];
+// console.log(collegeone);
+// console.log(college);
+</script>
+<script id="字符串的操作">
+    // let name='张三',age=18,sex='男',intro='我是一个superman';
+    // // let str='我叫：'+name+',年龄是：'+age+'，性别是：'+sex+',个人介绍:'+intro;
+    // //使用模板字符串的写法组成句子
+    // let str=`我叫：${name},年龄是：${age},性别是：${sex},个人介绍是：${intro}`;
+    // console.log(str);
+
+/*    //startsWith匹配以什么开头
+    let str1='https://www.itlike.com';
+    console.log(str1.startsWith('http'));
+    //endWith匹配以什么结尾的
+    console.log(str1.endsWith('com'));
+    //查看字符串中是否包含www
+    console.log(str1.includes('www'));*/
+    //repeat使当前字符串重复输出几次
+    // let x1='哈三世';
+    // console.log(x1.repeat(10));
+</script>
+<script id="函数的操作">
+    /*
+    function sum(num1=100,num2=100){
+        console.log(num1, num2);
+    }
+    sum();*/
+//    剩余运算符
+    /*function sumOne(zhiOne,...ff){
+        console.log(zhiOne,...ff);
+    }
+    sumOne('你好啊','hhhsss','姓名','名字','真名字')
+*/
+    //箭头函数
+  //输入=>输出 ()=>{}
+//   let func=()=>{
+//       console.log(func);
+//   };
+// func();
+// let school={
+//     name:'引擎计划',
+//     logThis:function () {
+//         setTimeout(function () {
+//             console.log(this);
+//             console.log(arguments.callee);
+//         },1000);
+//         setTimeout(()=>{
+//             console.log(this);
+//             console.log(arguments.callee);
+//         },2000)
+//     }
+// }
+// school.logThis();
+//     let xi=()=>{
+//         console.log(arguments);
+//     };
+//      xi();
+// let site='a.com';
+// let obj={
+//     site:'b.com',
+//     fn:()=>{
+//         //这个this指向的是window
+//         console.log(this);
+//         //site为空，应为this指向的是window，window中没有site这个属性所以为空
+//         console.log(this.site);
+//     }
+// }
+</script>
+<script id="05-展开运算符">
+   /* let arr1=['张三','李四','王五'];
+    let arr2=['赵柳','王小二'];
+// let arr3=[arr1,arr2];
+//这样写是直接将这两个数组中的值放到这个arr3中
+let arr3=[...arr1,...arr2];
+console.log(arr3);*/
+   /*let obj1={
+       name:'张三',
+       age:18,
+       sex:'女'
+   }
+   let obj2={
+       name:'李四',
+       age:14
+   }
+   let obj3={...obj1,...obj2};
+   console.log(obj3);
+*/
+</script>
+<script id="对象的拷贝" type="text/html">
+    //1）浅拷贝的话会将
+    /*let obj={
+        name:'顾建涛',
+        intro:'忘记他吧',
+        append:'他不是你想要的啊'
+    }
+    let newObj={};
+    Object.assign(newObj,obj);
+    console.log(newObj);
+    console.log(obj);
+    */
+    //深拷贝
+    let obj={
+        name:'顾建涛',
+        intro:'忘记他吧',
+        append:'他不是你想要的啊',
+        friends:{name:'无'}
+    }
+    let newObj={};
+    // console.log(newObj);
+
+    //把一个对象转成字符串
+    // console.log(typeof JSON.stringify(obj));
+    //将键值对转成字符串
+    // console.log(JSON.stringify(newObj));
+    //将转成的字符串转成键值对
+    // console.log(JSON.parse(JSON.stringify(obj)));
+    newObj=JSON.parse(JSON.stringify(obj));
+    newObj.friends.name='烟消云散';
+    console.log(newObj);
+    console.log(obj);
+</script>
+<script id="08-对象">
+
+    //2)Object.is,判断字符串里面的值是否相同，比较的是两个地址内存是否相同，如果两个值进行比较
+/*    Object.is({},{});//所以这个比较返回false
+    console.log(Object.is(undefined, undefined));//所以这个比较返回true
+    //3)super
+    let obj={name:'小撩'};
+    let obj2={
+        __proto__:obj,
+        name:'大撩',
+        getName(){
+            //super是拿到的是proto所关联的这一系列的属性或者方法
+            console.log(super.name);
+            console.log(this.__proto__);
+        }
+    }
+    obj2.getName();*/
+</script>
+<div id="box">
+
+</div>
+<!--设置面向对象的super的写法-->
+<script>
+    class Recat{
+        constructor(msg){
+            //msg没有传参数在这里面设置为空，默认使用里面的默认值
+            msg=msg||{};
+            //也可以设置属性默认值
+            this.width=msg.width||'100px';
+            this.height=msg.height||'100px';
+            this.bgColor=msg.bgColor||'yellow';
+        }
+        //绘制
+        render() {
+            //新建div
+            let divnew=document.createElement('div');
+            //指向div新建
+            let divfather=document.getElementById('box');
+            //将新建的div追加到divfather标签中
+            divfather.appendChild(divnew);
+            //设置里面的标签的宽和高
+            divnew.style.height=this.height;
+            divnew.style.width=this.width;
+            divnew.style.backgroundColor=this.bgColor;
+        }
+    }
+    //新建一个对象
+    let reactnew=new Recat({
+        width:'500px',
+        height:'300px',
+        bgColor:'green'
+    })
+    reactnew.render();
+    //如果不往函数中设置值，将会使用默认值来创建矩形
+    let recattwo=new Recat();
+    recattwo.render();
+</script >
+<!--设置属性和方法-->
+<script id="面向对象继承的写法">
+/*
+    class Father {
+        constructor(money){
+            this.money=money;
+        }
+        getMoney(){
+            console.log('你好我是父对象');
+            return this.money;
+
+        }
+    }
+    class Son extends Father{
+        constructor (name,money){
+            super (money);
+            this.name=name;
+            console.log(this.money=8888);
+        }
+
+        pay(){
+            console.log('你好我是子对象');
+            return this.money;
+        }
+    }
+    let son=new Son('王小二',10000);
+    // console.log(son);
+    console.log(son.getMoney());
+    console.log(son.pay());
+
+*/
+
+</script>
+<!--面向对象继承的写法-->
+<script>
+/*    class Father{
+        constructor(props) {
+            this.money=props;
+        }
+       getDate(){
+            return this.money;
+       }
+    }
+    class son extends Father{
+        constructor(name,props){
+            super(props)
+            this.name=name;
+        }
+        getYear(){
+            return this.name;
+        }
+    }
+    let erzi=new son('顾建涛','秀儿');
+    console.log(erzi);*/
+</script>
+<script id="set" type="text/html">
+    let setOne=new Set();
+    //Set自带去重
+    setOne.add('风火轮').add('花花世界').add('黑暗').add('糊涂').add('豆腐脑');
+    //删除哪个值就将那个值内容放到这里面
+    setOne.delete('花花世界');
+    // console.log(setOne);
+
+    //遍历集合
+    setOne.forEach((value, value2, set)=>{
+        console.log(value);
+    })
+    //移除所有内容
+    setOne.clear();
+    console.log(setOne);
+
+</script>
+<script id="Map">
+    // let obj={
+    //     name:'秀儿',
+    //     ff:{'ddd':'fff',
+    //         de:'fd'}
+    // }
+    // console.log(obj);
+    let arr=['wawa','ttt'];
+    let obj={name:'人物啊'}
+    let map=new Map([
+        ['liu','糊涂'],
+        ['age','fff'],
+        [arr,'nv'],
+        [obj,'basketball']
+    ]);
+    //map添加值的方式
+    map.set(true,false);
+    //map遍历值的方式
+    // map.forEach((value, key, map)=>{
+    //     console.log('值:'+value);
+    //     console.log('键:'+key);
+    // });
+    //根据键取值的方式
+    // console.log(map.get(arr));
+    // console.log(map);
+    //has判断这个map中是否有键所查的值
+    console.log(map.has('liu'));
+</script>
+</body>
+</html>
